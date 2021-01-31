@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- 
+  The consent.html displays the text of your IRB-approved
+  consent form.  Even if you are not required to provide
+  a consent form, it is helpful to use this form to 
+  describe what people can do if an error comes up, etc...
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Spatial Task - Informed Consent Form</title>
+        <link rel="stylesheet" href="./static/css/style.css" type="text/css" />
+        <script src = "jatos.js"></script>
+        <script type="text/javascript">
+            function agree(){
+                jatos.onLoad(() => 
+
+                    jatos.startNextComponent('Consent Given'))
+            }
+
+            function onexit() {
+                jatos.abortStudy(); // no harm, no foul here
+            }
+        </script>
+
+        <style type = "text/css">
+        
+        .google_form {
+            
+            width: document.body.clientWidth;
+
+        }
+        </style>
+        
+    </head>
+    <body>
+        <div id="container-consent">
+            <div id="consent">
+                <div class="legal_well">
+                    
+                    <!-- Consent Form -->
+                    <iframe 
+                    class = "google_form"
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdqXFwT9xJCqMoCw2wevWlHoWysq_JveTnXkqiZfzw1GTPl4Q/viewform?embedded=true" 
+                    height="2930"
+                    width = "940" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">Loading…
+                    </iframe>
+
+                    <button type="button" class="btn btn-default btn-sm" onClick="window.print();">
+                    <span class="glyphicon glyphicon-print"></span> Print a copy of this
+                    </button>
+                </div>
+
+                <hr/>
+                <h4><strong>If you have given informed consent and want to continue with the study, please click the button below.</strong></h4>
+                <br/>
+
+                <center>
+                    <button type="button" class="btn btn-primary btn-lg" onClick="jatos.startNextComponent()">
+                    <span class="glyphicon glyphicon-ok"></span> Continue 
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger btn-lg" onClick="onexit()">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Quit Study
+                    </button>
+                </center>
+
+            </div>
+        </div>
+    </body>
+</html>

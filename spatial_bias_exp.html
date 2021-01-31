@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+        <title>Psychology Experiment</title>
+        <style type = "text/css">
+        	/* Safari */
+			:-webkit-full-screen {
+			  background-color: darkgray;
+			}
+
+			/* IE11 */
+			:-ms-fullscreen {
+			  background-color: darkgray;
+			}
+
+			/* Standard syntax */
+			:fullscreen {
+			  background-color: darkgray;
+			}
+
+			/* for custom cursor */
+			img { 
+		        pointer-events: none; 
+		        /* doing this makes sure .elementFromPoint  
+		        do not accquires theimage cursor object */ 
+		        position: absolute; 
+		    }
+
+		    * {
+		    	cursor: none;
+	        }
+
+		    /* disable cursor from changing to text selector on drag */
+		    body {
+			    -webkit-touch-callout: none;
+			    -webkit-user-select: none;
+			    -khtml-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			}
+
+			.stop-scrolling {
+			  height: 100%;
+			  overflow: hidden;
+			}
+		</style>
+
+        <!-- libraries-->
+        <script src="./static/lib/jquery-min.js" type="text/javascript"> </script>
+		<script src="./static/lib/underscore-min.js" type="text/javascript"> </script>
+		<script src="./static/lib/backbone-min.js" type="text/javascript"> </script>
+		<script src="./static/lib/d3.v3.min.js" type="text/javascript"> </script>
+		<script src = "jatos.js"></script>
+		
+			
+		<!-- Task Script -->
+		<script type = 'text/javascript'>
+
+			//wrap appending the task script to the html file in loading jatos
+			//this way the script will run after jatos as loaded
+			jatos.onLoad(() => {
+				$.getScript('./static/js/spatial_bias_task.js', function() {
+					console.log('Running Precision WM Task...')
+				})
+			})
+			
+		</script>
+	
+
+
+	</head>
+
+	<body>
+
+
+		<img id="cursor" src= "./static/images/default_cursor.png" width="15" height="20" />
+
+	</body>
+
+</html>
